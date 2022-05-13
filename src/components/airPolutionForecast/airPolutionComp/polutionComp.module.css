@@ -1,0 +1,30 @@
+.mainContainer{
+    display: flex;
+    
+}
+
+.compWrapper{
+    
+    background : linear-gradient(45deg  ,rgba(12, 8, 241 , 0.5), rgba(189, 255, 6 , 0.5));
+    border-radius: 15px;
+}
+
+.data{
+    font-size: clamp(16px, 4vw, 28px);
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 2rem;
+}
+.compContainer{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.compContainer:last-child{
+    margin-left: 2rem;
+}
+.data{
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: clamp(16px 3vw 28px);
+}

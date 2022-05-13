@@ -1,0 +1,16 @@
+.compItem{
+    padding:1rem;
+    font-size: clamp(16px, 2vw, 28px);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    
+    
+}
+.day:last-child{
+    margin-bottom: 1rem ;
+    margin-left: 2rem;
+}
+.timeOfTheDay{
+margin-left: 1rem;
+font-size: clamp(18px, 4vw, 30px);
+}

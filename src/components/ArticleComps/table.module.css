@@ -1,0 +1,39 @@
+
+.tableContainer{
+    height: 100%;
+    display: grid;
+    margin: 2rem;
+    grid-template-columns: 1fr 1fr 2fr 2fr
+    
+}
+.gridItem{
+    font-size: clamp(16px,3vw,18px);
+    border: 2px solid white;
+    padding: 2rem;
+    
+}
+.gridItem0{
+    background:linear-gradient(to right , rgb(255, 226, 226) , white);
+}
+.gridItem1{
+    background: linear-gradient(to left , rgb(0, 192, 0), rgb(39, 238, 39))
+    
+}
+.gridItem2{
+    background: linear-gradient(to left , rgb(228, 228, 74) , rgb(230, 230, 14))
+}
+.gridItem3{
+    background: linear-gradient(to left , rgb(248, 193, 75) , rgb(235, 144, 8))
+}
+.gridItem4{
+    background: linear-gradient(to left , rgb(151, 25, 25) , rgb(248, 5, 5))
+}
+.gridItem5{
+    background: linear-gradient(to left , rgb(71, 48, 201) , rgb(49, 6, 207))
+}
+.gridItem6{
+    background: linear-gradient(to left , rgb(201, 63, 206) , rgb(241, 8, 230))
+}
+.rowItem{
+    margin-left: 0.5rem ;
+}

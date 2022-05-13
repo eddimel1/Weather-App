@@ -1,0 +1,184 @@
+.dailyWrapper{
+    width: 100%;
+    }
+.dailyContainer{
+    display: flex;
+    flex-direction: column;
+}
+.dailyTop{
+    display: flex;
+}
+.dailyTopLeft{
+    flex: 3 3 600px;
+}
+.dailyTopRight{
+    flex: 2 1 400px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+}
+.dailyBottom{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(22,24,27,0.2);
+    min-height: 400px;
+
+    
+}
+
+.dailyBottomContainer{
+    display: flex;
+    overflow-x: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+.dailyBottomCurrentForeCast{
+    flex: 1 1 200px;
+}
+.dailyBottomDailyForeCast{
+    flex: 5 1 500px;
+    display: flex;
+
+}
+.timeAndDataContainer{
+    display: flex;
+    align-items: center;
+    
+}
+.timeAndDataContainer h3 {
+    margin-left: 100px;
+    margin-top: 0;
+}
+.weatherData{
+    
+    display: inline-flex;
+    flex-direction: column;
+    border: 1px white solid;
+    background-color: rgba(255,255,255,0.5);
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 50px ;
+    max-width: 20%;
+}
+.weatherDataItem{
+    color: black;
+    font-weight: 500;
+    display: inline-flex;
+    font-size: clamp(14px,2vw,20px);
+}
+.time{
+    color: black;
+    font-size: clamp(16px,3vw,26px);
+    font-weight: 500;
+}
+
+.date{
+    margin-top: 30px;
+    color: black;
+    font-size: 40px;
+    font-weight: 500;
+}
+.dailyTopRightLocation{
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px 0px 0px;
+}
+.weatherDataContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+.dailyBottomContainer{
+    margin: 35px 50px 35px 50px ;
+    border: black 3px solid;
+    width: 100%;
+    display: flex;
+}
+.dailyTopLeftContainer{
+    margin:50px 0px 100px 100px
+}
+.dailyBottomCurrentForeCastContainer{
+    display: inline-flex;
+    flex-direction: column;
+    margin: 50px;
+    
+}
+.currentDay{
+    font-size: clamp(16px,3vw,24px);
+    width: 60%;
+    background-color: rgba(22,24,27,0.2);
+    border: black solid 1px;
+    padding: 10px;
+    border: white solid 2px;
+    border-radius: 15px;
+    color: white;
+
+}
+.weatherTimeCurrent{
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+    font-size: clamp(16px,3vw,24px);
+}
+
+@media only screen and (max-width: 1400px){
+    .dailyBottomContainer{
+        justify-content: start;
+        align-items: none;
+        overflow-x: scroll;
+        }
+        .weatherData{
+            max-width: 60%;
+                
+             }
+}
+    @media only screen and (max-width: 1300px){
+        
+   
+    .time{
+        color: black;
+        font-size: clamp(20px,3vw,30px);
+        font-weight: 500;
+    }
+    .date{
+        margin-top: 30px;
+        color: black;
+        font-size: clamp(16px,3vw,26px);
+        font-weight: 500;
+    }
+    .dailyTopRightLocation{
+        color: black;
+        font-size: clamp(20px,3vw,35px);
+        font-weight: 700;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 40px 0px 0px;
+    }
+    .weatherData{
+        display: inline-flex;
+        flex-direction: column;
+        border: 1px white solid;
+        background-color: rgba(255,255,255,0.5);
+        padding: 10px;
+        border-radius: 15px;
+        margin-top: 15px ;
+        max-width: 40%;
+    }
+}
+.input{
+    margin-top:2rem;
+    align-self: flex-end;
+    min-height: 35px;
+    position: relative;
+    border: 2px rgb(159, 54, 185) solid;
+    border-radius: 13px;
+    font-size: clamp(16px,3vw,24px);
+    font-weight: 500;
+    width: 50%;
+}

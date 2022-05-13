@@ -1,0 +1,24 @@
+.dailyForeCastItem{
+    display: inline-flex;
+    flex-direction: column;
+    
+}
+.Day{
+    background-color: rgba(22,24,27,0.2);
+    border: 1px solid white;
+    border-radius: 15px;
+    color: white;
+    font-size: clamp(16px,3vw,22px);
+    padding: 10px;
+
+}
+.dailyBottomForeCastContainer{
+    display: inline-flex;
+    flex-direction: column;
+    margin: 50px;
+    padding: 30px;
+    border: white 1px solid;
+    border-radius: 15px;
+    cursor: pointer;
+
+}

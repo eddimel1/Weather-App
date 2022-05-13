@@ -1,0 +1,69 @@
+.welcomeScreenContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.welcomeText{
+    font-family: Roboto;
+    font-size: clamp(2rem , 3vw , 3rem);
+    color: black;
+    font-weight: 700;
+    transition: all ease-in-out 0.7s;
+}
+.startButton{
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(2,0,36,1) 56%, rgba(0,212,255,1) 100%);
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    margin: 0 auto;
+    transition: all ease-in-out 0.7s;
+    cursor: pointer;
+}
+.startButton:hover{
+    transform: scale(1.3);
+    border: 2px solid white;
+}
+.welcomeScreenWrapper{
+    height: 100%;
+    width: 100%;
+}
+.welcomeScreenContainer{
+    width: 100%;
+    height: 100%;
+}
+.textContainer{
+    text-align: center;
+}
+.welcomeText1{
+    transition: all ease-in-out 0.7s;
+    font-family: Roboto;
+    font-size: clamp(2rem , 3vw , 3rem);
+    color: black;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.welcomeText1:hover{
+    transform: scale(1.2);
+}
+.welcomeText:hover{
+    transform: scale(1.2);
+}
+.userName{
+    transition: all ease-in-out 0.7s;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    width: clamp(15rem,3vw,40rem);
+    height: 3rem;
+    border-radius: 5px;
+    color: white;
+    font-size: clamp(16px,3vw,20px);
+    padding: 0.3rem;
+    background: linear-gradient(90deg, rgb(7, 193, 226) 0%, rgba(2,0,36,1) 56%, rgba(0,212,255,1) 100%);
+}
+.userName::placeholder{
+    color:white;
+}
+.userName:hover{
+    transform: scale(1.2);
+}

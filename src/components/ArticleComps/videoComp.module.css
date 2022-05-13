@@ -1,0 +1,17 @@
+.videoWrapper{
+   display: flex;
+   cursor: pointer;
+   
+}
+.video{
+    cursor: pointer;
+    margin: 1rem 2rem 1rem 4rem;
+    border: 2px white solid;
+    border-radius: 15px;
+    max-width: 90%;
+    max-height: 20rem;
+    aspect-ratio: 16/9;
+}
+.galeryWrapper{
+    display: grid;
+}

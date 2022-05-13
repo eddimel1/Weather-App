@@ -1,0 +1,61 @@
+.container {
+    position: relative;
+    width: 100%;
+    background: transparent;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+.list{
+    max-width: 60%;
+    padding: 0.5rem 1rem 2.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottomBorder{
+    color: white;
+}
+
+@media only screen and (max-width: 800px) {
+    .logoContainer {
+        display: none;
+      
+    }
+  }
+ 
+
+  
+
+  @keyframes rotation {
+      0% {
+          transform:rotate(90deg);
+      }
+      25% {
+        transform:rotate(180deg);
+    }
+    50% {
+        transform:rotate(270deg);
+    }
+    100% {
+        transform:rotate(360deg) ;
+    }
+  }
+  .logo{
+      transform: rotate(0deg);
+      animation-duration: 2s;
+  }
+.logo:hover {
+    animation-name: rotation;
+    animation-timing-function: ease;
+}
+.switchMode{
+    font-family: Roboto;
+    cursor: pointer;
+}
+
+
+
+

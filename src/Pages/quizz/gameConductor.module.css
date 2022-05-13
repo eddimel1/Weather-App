@@ -1,0 +1,6 @@
+.gameWrapper{
+    margin: 5% auto;
+    width: 70%;
+    height: clamp(40rem,3vh,70rem);
+    background-color: white;
+}

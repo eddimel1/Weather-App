@@ -1,0 +1,26 @@
+.switchMode{
+    color: black;
+    cursor:pointer;
+    display: inline;
+    min-width: 110px;
+    padding: 0.4rem;
+}
+.switchMode:hover{
+    background-color: black;
+    color: white;
+}
+
+.modeContainer{
+    border-radius: 7px;
+    position: absolute;
+    top: 1.8rem;
+    left:0;
+    display: inline-flex;
+    flex-direction: column;
+    background-color:white;
+}
+.modeTitle{
+    position: relative;
+    cursor: pointer;
+
+}

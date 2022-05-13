@@ -1,0 +1,28 @@
+.seekBar{
+    position: relative;
+    width: 70%;
+    height: 15px;
+    border-radius: 15px;
+    border: #3DF8ED 2px solid;
+}
+.timeAndSeekBarContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.progressBar{
+    height: 14.8px;
+    position: absolute;
+    background-color: #3DF8ED;
+}
+.bufferingBar{
+    position: absolute;
+    z-index: -1;
+    width: 10px;
+    height: 15px;
+    background-color: white;
+    top: 0;
+    
+
+}

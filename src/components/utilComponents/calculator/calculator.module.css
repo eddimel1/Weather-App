@@ -1,0 +1,58 @@
+.calcWrapper{
+    width: 40%;
+    position: relative;
+    top: 10%;
+    left: 10%;
+}
+
+
+.calcContainer{
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+    
+}
+.calcInput {
+    grid-column: 1 / -1;
+    background-color: black;
+    display: flex;
+    color: white;
+}
+.operationButton{
+    background-color :rgb(169, 142, 190);
+    border: white;
+    transition: background-color 0.7s;
+    
+   
+    }
+    .operationButton:hover{
+        
+        background-color: white;
+        
+    }
+    .funcButtons{
+        
+        grid-column: span 2;
+        background-color: black;
+        color: white;
+        border: white 1px solid;
+        font-size: clamp(16px,3vw,24px);
+        transition: background-color 0.7s;
+    }
+    .funcButtons:hover{
+        background-color: white;
+        color: black;
+    }
+    .funcButtonsEquals{
+        grid-column: span 4;
+        background-color: black;
+        color: white;
+        border: white 1px solid;
+        font-size: clamp(16px,3vw,24px);
+        min-height: 5rem;
+        transition: background-color 0.7s;
+    }
+    .funcButtonsEquals:hover{
+        background-color: white;
+        color: black;
+    }
