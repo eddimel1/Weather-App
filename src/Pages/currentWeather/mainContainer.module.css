@@ -1,102 +1,91 @@
-.mainWrapper{
-    width: 70%;
-    min-height: 500px;
-    border: 3px rgba(224, 214, 214 , 0.5) solid;
-    margin: 70px auto;
-    background-color: white;
-    opacity: 0.8;
-    position: relative;
-    z-index: 50;
-    }
-    .containerForScroll{
-        height: 100vh;
-    }
-.mainContainer{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    
-    
-    
+.mainWrapper {
+  width: 70%;
+  min-height: 500px;
+  border: 3px rgba(224, 214, 214, 0.5) solid;
+  margin: 70px auto;
+  background-color: white;
+  opacity: 0.8;
+  position: relative;
+  z-index: 50;
 }
-.inputContainer{
-    margin: 25px 0px 0px 0px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.containerForScroll {
+  height: 100vh;
 }
-.input{
-    margin-right: 30px;
-    padding-left: 10px;
-    border-radius: 20px;
-    height: 20px;
-    width: 40%;
-    
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
 }
-.mainDataContainer{
-    display: flex;
-    margin:1rem;
-    margin-top: 2rem ;
-    min-height: 300px;
-    
+.inputContainer {
+  margin: 25px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.dataLeft{
-    
-    flex: 1 1  250px;
-    background:url('../../assets/sun-svgrepo-com.svg') no-repeat;
-    background-position: top;
-    background-size:contain ;
-    
-
+.input {
+  margin-right: 30px;
+  padding-left: 10px;
+  border-radius: 20px;
+  height: 20px;
+  width: 40%;
 }
-.dataCenter{
-    margin-left: 20px ;
-    flex: 4 2  400px;
-   background : url('../../assets/umbrella__87444.webp') no-repeat;
-   background-position: top;
-   background-size:contain ;
-
+.mainDataContainer {
+  display: flex;
+  margin: 1rem;
+  margin-top: 2rem;
+  min-height: 300px;
 }
-.dataRight{
-    display: flex;
-    flex-direction: column;
-    margin-left:20px ;
-    flex: 1 1  250px;
-    background : url('../../assets/Wind--NicholasJudy456.svg') no-repeat;
-    background-position: bottom;
-    background-size:contain ;
-
+.dataLeft {
+  flex: 1 1 250px;
+  background: url('../../assets/sun-svgrepo-com.svg') no-repeat;
+  background-position: top;
+  background-size: contain;
 }
-.townName{
-    padding-left: 30px;
-    color: rgb(106, 95, 131);
-    font-weight: 700;
-    font-size: 2.5rem;
+.dataCenter {
+  margin-left: 20px;
+  flex: 4 2 400px;
+  background: url('../../assets/umbrella__87444.webp') no-repeat;
+  background-position: top;
+  background-size: contain;
 }
-.tempData{
-    color: black;
-    font-size: 2rem;
-    font-weight: 700;
+.dataRight {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  flex: 1 1 250px;
+  background: url('../../assets/Wind--NicholasJudy456.svg') no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+.townName {
+  padding-left: 30px;
+  color: rgb(106, 95, 131);
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+.tempData {
+  color: black;
+  font-size: 2rem;
+  font-weight: 700;
 }
 .weatherField {
-    margin-top: 8px;
-    color: black;
-    padding-left: 15px;
-    font-size: 18px;
-    font-family: Roboto;
-    font-weight: 700;
+  margin-top: 8px;
+  color: black;
+  padding-left: 15px;
+  font-size: 18px;
+  font-family: Roboto;
+  font-weight: 700;
 }
-.img{
- 
+.img {
 }
-.imgContainer{
-    width: 70%;
-    margin:0 auto ;
+.imgContainer {
+  width: 70%;
+  margin: 0 auto;
 }
 @media only screen and (max-width: 800px) {
-    .inputContainer{
-        flex-direction: column;
-    }
+  .inputContainer {
+    flex-direction: column;
   }
+}

@@ -1,10 +1,10 @@
-.formulaWrapper{
-    background-color: rgb(169, 142, 190);
-    color: black;
-    font-size: 25px;
-    border-radius: 15px;
-    padding: 1rem;
-    margin-top: 1rem;
-    border : black 1px solid;
-    width: clamp(50%,15rem,80%);
+.formulaWrapper {
+  background-color: rgb(169, 142, 190);
+  color: black;
+  font-size: 25px;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: black 1px solid;
+  width: clamp(50%, 15rem, 80%);
 }

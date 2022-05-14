@@ -1,18 +1,16 @@
-.listItem{
-     
-    text-decoration: none;
-    color: black;
-    transition: color ease-out 0.3s;
-    
-   }
-   .listItem:hover{
-       color:white;
-   }
-   .listItemContainer{
-       margin-top: 10px;
-   }
-   .active{
-       background-color: white;
-       border-radius: 15px;
-       color: brown;
-   }
+.listItem {
+  text-decoration: none;
+  color: black;
+  transition: color ease-out 0.3s;
+}
+.listItem:hover {
+  color: white;
+}
+.listItemContainer {
+  margin-top: 10px;
+}
+.active {
+  background-color: white;
+  border-radius: 15px;
+  color: brown;
+}

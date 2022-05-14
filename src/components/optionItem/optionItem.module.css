@@ -1,12 +1,10 @@
-.optionItem{
-    cursor: pointer;
-    margin-top: 5px;
-    padding : 0 0.5rem 0 0.5rem;
-    
+.optionItem {
+  cursor: pointer;
+  margin-top: 5px;
+  padding: 0 0.5rem 0 0.5rem;
 }
-.active{
-    color:brown;
-    background-color: white;
-    border-radius: 15px;
-    
+.active {
+  color: brown;
+  background-color: white;
+  border-radius: 15px;
 }

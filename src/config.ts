@@ -11,13 +11,12 @@ export {}
 
 // interface ENV {
 //     WEATHER_API_KEY : string | undefined,
-    
+
 // }
 
 // interface Config {
 //     WEATHER_API_KEY : string,
- 
-    
+
 // }
 
 // // Loading process.env as ENV interface
@@ -25,14 +24,14 @@ export {}
 // const getConfig = (): ENV => {
 //   return {
 //     WEATHER_API_KEY: process.env.WEATHER_API_KEY
-   
+
 //   };
 // };
 
-// // Throwing an Error if any field was undefined we don't 
-// // want our app to run if it can't connect to DB and ensure 
+// // Throwing an Error if any field was undefined we don't
+// // want our app to run if it can't connect to DB and ensure
 // // that these fields are accessible. If all is good return
-// // it as Config which just removes the undefined from our type 
+// // it as Config which just removes the undefined from our type
 // // definition.
 
 // const getSanitzedConfig = (config: ENV): Config => {
@@ -47,5 +46,3 @@ export {}
 // const config = getConfig();
 
 // export const sanitizedConfig = getSanitzedConfig(config);
-
-

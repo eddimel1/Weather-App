@@ -1,13 +1,12 @@
-.volumeBar{
-    position: relative;
-    z-index:500;
-    width: 10rem;
-    height: 15px;
-    border-radius: 15px;
-    border:2px solid #3DF8ED ;
+.volumeBar {
+  position: relative;
+  z-index: 500;
+  width: 10rem;
+  height: 15px;
+  border-radius: 15px;
+  border: 2px solid #3df8ed;
 }
-.volumeProgress{
-    position: absolute;
-    background-color: #3DF8ED;
-
+.volumeProgress {
+  position: absolute;
+  background-color: #3df8ed;
 }

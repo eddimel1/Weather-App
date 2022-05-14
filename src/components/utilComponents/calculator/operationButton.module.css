@@ -1,10 +1,10 @@
-.operationButton{
-    background-color :rgb(169, 142, 190) ;
-    border: 1px solid white;
-    font-size: clamp(16px,3vw,24px);
+.operationButton {
+  background-color: rgb(169, 142, 190);
+  border: 1px solid white;
+  font-size: clamp(16px, 3vw, 24px);
 }
 
-.operationButton:hover , .digitButton:focus{
-background-color: white;
-
+.operationButton:hover,
+.digitButton:focus {
+  background-color: white;
 }

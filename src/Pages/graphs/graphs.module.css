@@ -1,90 +1,75 @@
-
-.optionsWrapper{
-    
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    padding: clamp(0.5rem,1.5rem,2rem);
-    width: clamp(15rem,65vw,50rem);
-    
+.optionsWrapper {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: clamp(0.5rem, 1.5rem, 2rem);
+  width: clamp(15rem, 65vw, 50rem);
 }
-.optionsContainer{
-    display: flex;
-    color: white;
-    margin: 0 3rem 2rem 0;
-    }
-.optionsMainContainer{
-    padding: clamp(0.5rem,1.5rem,2rem)
-
-    }  
-.optionItemContainer{
-    margin-right: clamp(0.5rem,0.8rem,1.5rem);
-      
-
-
+.optionsContainer {
+  display: flex;
+  color: white;
+  margin: 0 3rem 2rem 0;
 }
-.topFlexContaier{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+.optionsMainContainer {
+  padding: clamp(0.5rem, 1.5rem, 2rem);
 }
-.chartOptionItem{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin:1rem 0 0 clamp(1rem,4rem,5rem);
-    color: white;  
+.optionItemContainer {
+  margin-right: clamp(0.5rem, 0.8rem, 1.5rem);
 }
-.town{
-    color: rgb(243, 236, 236);
-    font-size: clamp(20px,3vw,35px);
-    margin-bottom: 2rem;
-    
+.topFlexContaier {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
-.setHours{
-    color: black;
-    border-radius: 15px;
-    cursor: pointer;
-    padding:0 0.7rem 0 0.7rem;
-    
+.chartOptionItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 0 clamp(1rem, 4rem, 5rem);
+  color: white;
 }
-.chart{
-    position: relative;
-    opacity: 1;
-    animation: opacity 1.5s ease-in-out ;
+.town {
+  color: rgb(243, 236, 236);
+  font-size: clamp(20px, 3vw, 35px);
+  margin-bottom: 2rem;
+}
+.setHours {
+  color: black;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 0 0.7rem 0 0.7rem;
+}
+.chart {
+  position: relative;
+  opacity: 1;
+  animation: opacity 1.5s ease-in-out;
 }
 @keyframes opacity {
-    from{
-         transform: translateY(-100%);   
-        opacity:0;
-    }
-    to{ 
-        transform: translateY(0);
-        opacity:1;
-    }
-    
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.setHoursContainer{
-    margin-top: 0.2rem;
+.setHoursContainer {
+  margin-top: 0.2rem;
 }
-@media (max-width:1200px) {
-    .chartOptionItem{
-        margin: 0;
-    }
-    .optionsMainContainer{
-        padding: 0;
-    }
-    .optionsContainer {
-        margin: 0;
-        
-    }
+@media (max-width: 1200px) {
+  .chartOptionItem {
+    margin: 0;
+  }
+  .optionsMainContainer {
+    padding: 0;
+  }
+  .optionsContainer {
+    margin: 0;
+  }
 }
-@media (max-width:980px) {
-
-
-.mainWrapper{
+@media (max-width: 980px) {
+  .mainWrapper {
     flex-direction: column;
+  }
 }
-
-}
-

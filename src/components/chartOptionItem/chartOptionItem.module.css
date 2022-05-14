@@ -1,10 +1,10 @@
-.chartOptionItem{
-    color: white;
-    cursor: pointer;
-    padding:0 0.7rem 0 0.7rem;
+.chartOptionItem {
+  color: white;
+  cursor: pointer;
+  padding: 0 0.7rem 0 0.7rem;
 }
-.active{
-    background-color: white;
-    border-radius: 15px;
-    color: brown;
+.active {
+  background-color: white;
+  border-radius: 15px;
+  color: brown;
 }

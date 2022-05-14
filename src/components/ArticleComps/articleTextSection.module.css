@@ -1,26 +1,30 @@
-.textSectionWrapper{
-    
-    background: linear-gradient(to left , rgba(235, 189, 235,0.6) , rgba(243, 174, 240,0.6));
-    border:2px white solid;
-    border-radius: 15px;
-    overflow: hidden;
-    margin: 1rem 1rem 1rem 1rem;
-
+.textSectionWrapper {
+  background: linear-gradient(
+    to left,
+    rgba(235, 189, 235, 0.6),
+    rgba(243, 174, 240, 0.6)
+  );
+  border: 2px white solid;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 1rem 1rem 1rem 1rem;
 }
-.textSectionWrapper:last-child{
-    
-    background: linear-gradient(to left , rgba(235, 189, 235,0.6) , rgba(243, 174, 240,0.6));
-    border:2px white solid;
-    border-radius: 15px;
-    overflow: hidden;
-    margin: 1rem 1rem 10rem 1rem;
-
+.textSectionWrapper:last-child {
+  background: linear-gradient(
+    to left,
+    rgba(235, 189, 235, 0.6),
+    rgba(243, 174, 240, 0.6)
+  );
+  border: 2px white solid;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 1rem 1rem 10rem 1rem;
 }
-.sectionText{
-    font-family: Roboto;
-    overflow-wrap: break-word;
-    word-wrap:break-word;
-    padding: 1rem;
-    font-size: clamp(16px , 3vw , 20px);
-    color: rgb(0, 0, 0);
+.sectionText {
+  font-family: Roboto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  padding: 1rem;
+  font-size: clamp(16px, 3vw, 20px);
+  color: rgb(0, 0, 0);
 }

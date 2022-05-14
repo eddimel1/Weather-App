@@ -1,55 +1,60 @@
-.configWrapper{
-    width: 100%;
-    height: 100%;
+.configWrapper {
+  width: 100%;
+  height: 100%;
 }
-.configContainer{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.configContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.configText{
-    font-family: Roboto;
-    font-size: clamp(2rem , 3vw , 3rem);
-    color: black;
-    font-weight: 500;
-    margin-top: 1rem;
-    text-align: center;
+.configText {
+  font-family: Roboto;
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: black;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
 }
-.startButton{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(2,0,36,1) 56%, rgba(0,212,255,1) 100%);
-    width: 10rem;
-    height: 3rem;
-    color: white;
-    margin: 0 auto;
-    transition: all ease-in-out 0.7s;
-    cursor: pointer;
+.startButton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(2, 0, 36, 1) 56%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  width: 10rem;
+  height: 3rem;
+  color: white;
+  margin: 0 auto;
+  transition: all ease-in-out 0.7s;
+  cursor: pointer;
 }
-.selectContainer{
-    display: flex;
-    justify-content: space-around;
+.selectContainer {
+  display: flex;
+  justify-content: space-around;
 }
-.select{
-    border-radius: 5px;
-    width: 15em;
-    height: 4rem;
-    background-color: black;
-    color: white;
-    font-size: clamp(18px,3vw,26px);
+.select {
+  border-radius: 5px;
+  width: 15em;
+  height: 4rem;
+  background-color: black;
+  color: white;
+  font-size: clamp(18px, 3vw, 26px);
 }
-.option{
-    background-color: black;
-    color: white;
+.option {
+  background-color: black;
+  color: white;
 }
-.option:hover{
-    background-color: white;
-    color: black;
-    outline: none;
+.option:hover {
+  background-color: white;
+  color: black;
+  outline: none;
 }
 
-.option:focus{
-    background-color: white;
-    color: black;
-    outline: none;
+.option:focus {
+  background-color: white;
+  color: black;
+  outline: none;
 }

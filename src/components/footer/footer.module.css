@@ -1,20 +1,19 @@
 .footer {
-    height: 100px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: grey;
-    
-    opacity: 0.5;
-    z-index: 100;
-    background: white;
-   
-  }
-  .textField{
-    color: black;
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 2rem;
-  }
+  height: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: grey;
+
+  opacity: 0.5;
+  z-index: 100;
+  background: white;
+}
+.textField {
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 2rem;
+}

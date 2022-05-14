@@ -1,6 +1,5 @@
-import React from 'react';
-import { keyframes } from 'styled-components'
-
+import React from 'react'
+import {keyframes} from 'styled-components'
 
 export const opacityAnimation = keyframes`
 0% {
@@ -18,8 +17,8 @@ export const opacityAnimation = keyframes`
 100% {
     opacity : 0.9
 }
-`;
-export const translateAnimation  = keyframes`
+`
+export const translateAnimation = keyframes`
 0% {
     transform: translateX(-100%);
 }
@@ -64,4 +63,4 @@ export const translateAnimation  = keyframes`
 100% {
     transform: translateX(-100%);
 }
-`;
+`

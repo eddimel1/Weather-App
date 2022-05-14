@@ -1,5 +1,5 @@
 .naturalShadow {
-    filter: url('data:image/svg+xml,\
+  filter: url('data:image/svg+xml,\
       <svg xmlns="http://www.w3.org/2000/svg">\
         <filter id="naturalShadow" x="-10" y="-10" width="20" height="20">\
           <feOffset in="SourceGraphic" dx="3" dy="3" />\
@@ -10,4 +10,4 @@
           </feMerge>\
         </filter>\
       </svg>#naturalShadow');
-  }
+}

@@ -1,47 +1,46 @@
-
-.mainWrapper{
-    height: calc(100vh - 100px);
-    width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+.mainWrapper {
+  height: calc(100vh - 100px);
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-.imageGrid{
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(3 ,1fr);
-    gap: 1rem;
+.imageGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
-.column{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+.column {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
-.paginationBar{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    list-style: none;
-    justify-content: center;
+.paginationBar {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  list-style: none;
+  justify-content: center;
 }
-.page{
-    border:2px solid black;
-    height: 3rem;
-    color: white;
-    background-color: blue;
-    font-size: 2rem;
-    margin-left: 0.2rem;
-    cursor: pointer;
+.page {
+  border: 2px solid black;
+  height: 3rem;
+  color: white;
+  background-color: blue;
+  font-size: 2rem;
+  margin-left: 0.2rem;
+  cursor: pointer;
 }
-.imgFlexItem{
-   flex: 1 1 25%;
+.imgFlexItem {
+  flex: 1 1 25%;
 }
-@media(max-width: 1000px){
-    .imageGrid{
-        grid-template-columns: repeat(2 ,1fr);
-    }
+@media (max-width: 1000px) {
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-@media(max-width: 700px){
-    .imageGrid{
-        grid-template-columns: repeat(1 ,1fr);
-    }
+@media (max-width: 700px) {
+  .imageGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
