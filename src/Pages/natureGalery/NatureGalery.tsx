@@ -4,17 +4,15 @@ import classes from '../natureGalery/NatureGalery.module.css'
 import {Transition} from '../../components/transitionComps/transition'
 import {GaleryImageComp} from '../../components/imageComp/imageComp'
 import {Modal} from '../../components/utilComponents/modal/Modal'
-import {JsxElement} from 'typescript'
 export const NatureGalery = () => {
   const ApiKey = process.env.REACT_APP_UNSPLASH_APP_KEY
-  const BASE_URL = 'https://api.unsplash.com/search/photos?'
   const [data, setData] = useState<any>([])
   const [town, setTown] = useState<string>('')
   const [selected, setSelected] = useState<string | undefined>(undefined)
   const [currentPage, setCurrentPage] = useState(1)
   const grid = useRef<HTMLDivElement>(null)
   const createPaginationNumbers = (count: number): number[] => {
-    let arr: number[] = []
+    const arr: number[] = []
     for (let i = 0; i <= count; i++) {
       arr.push(i)
     }
@@ -30,49 +28,7 @@ export const NatureGalery = () => {
       .then((data) => data.json())
       .then((data) => setData(data))
   }, [town, currentPage])
-  const iterateOverData = (data: any) => {
-    let jsxElems = ''
-    if (data.results.length) {
-      for (let i = 0; i > data.results.length; i + 3) {
-        console.log(data.results)
-        jsxElems += (
-          <>
-            <div className={classes.imgFlexItem}>
-              <GaleryImageComp
-                alt="natureImage"
-                height={data.results[i].height}
-                src={data.results[i].urls.regular}
-                width={data.results[i].width}
-                setSelected={setSelected}
-                index={i.toString()}
-              ></GaleryImageComp>
-            </div>
-            <div className={classes.imgFlexItem}>
-              <GaleryImageComp
-                alt="natureImage"
-                height={data.results[i + 1].height}
-                src={data.results[i + 1].urls.regular}
-                width={data.results[i + 1].width}
-                setSelected={setSelected}
-                index={(i + 1).toString()}
-              ></GaleryImageComp>
-            </div>
-            <div className={classes.imgFlexItem}>
-              <GaleryImageComp
-                alt="natureImage"
-                height={data.results[i + 2].height}
-                src={data.results[i + 2].urls.regular}
-                width={data.results[i + 2].width}
-                setSelected={setSelected}
-                index={(i + 2).toString()}
-              ></GaleryImageComp>
-            </div>
-          </>
-        )
-      }
-      return jsxElems
-    }
-  }
+ 
 
   return (
     <>
@@ -137,9 +93,9 @@ export const NatureGalery = () => {
             )}
           </div>
           <div className={classes.paginationBar}>
-            {createPaginationNumbers(10).map((number) => {
+            {createPaginationNumbers(10).map((number,i) => {
               return (
-                <li
+                <li key={Date.now() + i}
                   className={classes.page}
                   onClick={() => {
                     setCurrentPage(number)

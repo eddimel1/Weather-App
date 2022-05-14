@@ -7,7 +7,7 @@ import {OptionItem} from '../../components/optionItem/optionItem'
 import {hourlyType} from '../../staticData/mainData'
 import {ChartOptionItem} from '../../components/chartOptionItem/chartOptionItem'
 import {Transition} from '../../components/transitionComps/transition'
-import {Transition1} from '../../components/transitionComps/transitionOnlyOpacity'
+
 
 import {
   Chart as ChartJS,
@@ -97,7 +97,7 @@ export const Graphs = () => {
       },
     ],
   }
-  let options1 = {
+  const options1 = {
     responsive: true,
     maintainAspectRatio: true,
     scales: {
@@ -189,9 +189,9 @@ export const Graphs = () => {
 
             <div className={classes.optionsContainer}>
               <div className={classes.optionItemContainer}>
-                {optionsArray.map((option) => {
+                {optionsArray.map((option,i) => {
                   return (
-                    <OptionItem
+                    <OptionItem key={Date.now() + i}
                       index={option}
                       setSelected={setSelected}
                       selected={selected}
@@ -200,9 +200,9 @@ export const Graphs = () => {
                 })}
               </div>
               <div className={classes.chartOptionItem}>
-                {chartArray.map((chart) => {
+                {chartArray.map((chart,i) => {
                   return (
-                    <ChartOptionItem
+                    <ChartOptionItem key={Date.now() + i}
                       index={chart}
                       setChartSelected={setSelectedChart}
                       selected={selectedChart}

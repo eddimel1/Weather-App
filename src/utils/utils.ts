@@ -22,6 +22,7 @@ export function hasProperty<T extends object>(
   prop: string,
   obj: T | undefined
 ): string | undefined {
+    // eslint-disable-next-line no-prototype-builtins
   const truth = obj?.hasOwnProperty(prop)
   if (truth) {
     return prop
@@ -42,6 +43,7 @@ export async function api<T>(url: string): Promise<T> {
 }
 
 export const getLatAndLon = (town: string): void | Promise<Array<number>> => {
+    // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (res, rej) => {
     try {
       const cords = await api<geoCodingObjectType>(
@@ -59,31 +61,39 @@ export function getDatefromData(
   data: 'month' | 'day' | 'dayOfMonth' | 'hours' | 'minutes'
 ) {
   switch (data) {
-    case 'month':
-      const month = new Date(Date.now()).getMonth()
-      return monthsArray[month]
+    case 'month':{
+        const month = new Date(Date.now()).getMonth()
+        return monthsArray[month]
+    }
+     
 
-    case 'day':
-      const day = new Date(Date.now()).getDay()
-      return daysArray[day]
+    case 'day':{
+        const day = new Date(Date.now()).getDay()
+        return daysArray[day]
+    }
+      
 
     case 'dayOfMonth':
       return new Date(Date.now()).getDate()
-    case 'hours':
-      const hours = new Date(Date.now()).getHours()
-      if (hours < 10) {
-        return '0' + hours
-      } else {
-        return hours
-      }
+    case 'hours':{
+        const hours = new Date(Date.now()).getHours()
+        if (hours < 10) {
+          return '0' + hours
+        } else {
+          return hours
+        }
+    }
+    
 
-    case 'minutes':
-      const minutes = new Date(Date.now()).getMinutes()
-      if (minutes < 10) {
-        return minutes + '0'
-      } else {
-        return minutes
-      }
+    case 'minutes':{
+        const minutes = new Date(Date.now()).getMinutes()
+        if (minutes < 10) {
+          return minutes + '0'
+        } else {
+          return minutes
+        }
+    }
+    
 
     default:
       break

@@ -100,7 +100,7 @@ export const FilterOptions: FC<propType> = (props: propType) => {
     options: string[],
     objOfInputValues: objOfInputValuesType
   ) => {
-    let finalFilterString: string = ''
+    let finalFilterString = ''
     console.log(finalFilterString)
     if (options) {
       for (let i = 0; i < options.length; i++) {

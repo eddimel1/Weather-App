@@ -36,7 +36,7 @@ type operation = {
   sign: signType | null
 }
 type stateType = {
-  overwrite?: Boolean
+  overwrite?: boolean
   operations?: operation[]
   currentValue?: string | undefined
   result?: number
@@ -147,8 +147,8 @@ function equalsIsClicked(
                       parseInt(array[index - 1].valueNumber!) +
                     value * value
                   ) // ??
-                case '/':
-                  let arr2 = [] as any
+                case '/': {
+                  const arr2 = [] as any
                   let lastIndex: any
                   for (let i = array.length - 1; i >= 0; i--) {
                     if (
@@ -172,7 +172,7 @@ function equalsIsClicked(
                     )
                   }
                   return 0
-
+                }
                 case null:
                   return (
                     parseInt(state.operations[0].valueNumber) /
@@ -202,7 +202,7 @@ function equalsIsClicked(
               const length = state.operations.length
 
               switch (state.operations[length - 2].sign) {
-                case '+':
+                case '+':{
                   const percentage =
                     calcPercentage(
                       parseInt(cur.valueNumber, 10),
@@ -219,8 +219,8 @@ function equalsIsClicked(
                     )
 
                   return acc + percentage
-
-                case '-': // ??
+                    }
+                case '-': { // ??
                   const percentage1 = calcPercentage(
                     parseInt(cur.valueNumber, 10),
                     parseInt(
@@ -235,6 +235,7 @@ function equalsIsClicked(
                     parseInt(state.operations[length - 2].valueNumber!) -
                     percentage1
                   )
+                }
                 case '*':
                   return (
                     (acc /
@@ -315,7 +316,7 @@ function reducer(state: stateType, action: action): stateType {
           }
         } else if (state.operations && state.operations?.length >= 2) {
           if (state.operations?.length >= 2 && action.digit) {
-            let lastItem = state.operations.length - 1
+            const lastItem = state.operations.length - 1
 
             return {
               ...state,
@@ -332,7 +333,7 @@ function reducer(state: stateType, action: action): stateType {
         }
       } else if (!state.currentValue) {
         if (state.operations) {
-          let lastItem = state.operations.length - 1
+          const lastItem = state.operations.length - 1
 
           return {
             ...state,
@@ -356,7 +357,8 @@ function reducer(state: stateType, action: action): stateType {
         currentValue: `${state.currentValue || ''}${action.digit}`,
       }
 
-    case 'operation-clicked':
+    case 'operation-clicked': {
+        // eslint-disable-next-line no-case-declarations
       const operation: operation = {valueNumber: null, sign: null}
 
       if (state.operations) {
@@ -374,13 +376,13 @@ function reducer(state: stateType, action: action): stateType {
       }
 
       return state
-
+    }
     case 'clear':
       return {}
 
     case 'delete-digit':
       if (state.operations) {
-        let lastItem = state.operations.length - 1
+        const lastItem = state.operations.length - 1
         if (state.operations[lastItem].valueNumber) {
           if (state.operations[lastItem].valueNumber?.length === 1) {
             return {

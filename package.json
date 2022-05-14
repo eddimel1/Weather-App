@@ -28,6 +28,7 @@
     "start": "npx kill-port 3000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint" : "eslint ./src",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,7 +52,11 @@
   "devDependencies": {
     "@types/node": "^16.11.32",
     "@types/styled-components": "^5.1.25",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
     "assert": "^2.0.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
     "fs": "0.0.1-security",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "prettier": "^2.6.2",

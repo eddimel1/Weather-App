@@ -53,10 +53,10 @@ export const VideoPlayerSeekBar = (props: propsType) => {
       ref={seekBarRef}
       style={{zIndex: '500'}}
       onClick={(e: React.MouseEvent) => {
-        setProgressWidth(
+        seekBarRef.current && setProgressWidth(
           calcPersentage(
             e.nativeEvent.offsetX,
-            seekBarRef.current?.offsetWidth!
+            seekBarRef.current.offsetWidth
           )
         )
         if (player && seekBarRef.current) {
