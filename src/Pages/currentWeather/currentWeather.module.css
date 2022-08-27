@@ -1,0 +1,122 @@
+.mainWrapper {
+  font-size: clamp(5px, 1vw, 10px);
+  width: 70%;
+  min-height: 500px;
+  border: 3px rgba(224, 214, 214, 0.5) solid;
+  margin: 70px auto;
+  background-color: white;
+  position: relative;
+  z-index: 50;
+  transition: opacity 0.1s ease;
+  transform-style: preserve-3d;
+}
+.show {
+  animation: containerAnIM 1s ease-in;
+}
+.containerForScroll {
+  height: 100vh;
+}
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+.inputContainer {
+  margin: 25px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.input {
+  margin-right: 30px;
+  padding-left: 10px;
+  border-radius: 20px;
+  height: 20px;
+  width: 40%;
+}
+.mainDataContainer {
+  display: flex;
+  margin: 1rem;
+  margin-top: 2rem;
+  min-height: 300px;
+}
+.dataLeft {
+  flex: 1 1 250px;
+  background: url('../../assets/sun-svgrepo-com.svg') no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+.dataCenter {
+  margin-left: 20px;
+  flex: 4 2 400px;
+  background: url('../../assets/umbrella__87444.webp') no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+.dataRight {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  flex: 1 1 250px;
+  background: url('../../assets/Wind--NicholasJudy456.svg') no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+.townName {
+  padding-left: 30px;
+  color: rgb(106, 95, 131);
+  font-weight: 700;
+  font-size: 3em;
+}
+.tempData {
+  color: black;
+  font-size: 3em;
+  font-weight: 700;
+}
+.weatherField {
+  margin-top: 8px;
+  color: black;
+  padding-left: 15px;
+  font-size: 2.5em;
+  font-family: Roboto;
+  font-weight: 700;
+}
+
+.imgContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 800px) {
+  .inputContainer {
+    flex-direction: column;
+  }
+}
+@keyframes containerAnIM {
+  0% {
+    transform: translate3d(1px, 1px, -500px) scaleZ(0.9);
+    filter: blur(0px);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translate3d(10px, 10px, -500px) scaleZ(0.8);
+    filter: blur(2px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(1px, 1px, -500px) scaleZ(0.8);
+    filter: blur(3px);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate3d(-8px, -8px, 0) scaleZ(1);
+    filter: blur(1px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scaleZ(1);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
