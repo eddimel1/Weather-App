@@ -6,7 +6,6 @@ type propType = {
   rows: Array<rowType>
 }
 
-// should be by every row
 export const obj: propType = {
   rows: [
     {

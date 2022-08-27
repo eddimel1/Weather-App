@@ -11,20 +11,34 @@
   grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
 .calcInput {
+  font-size: 1.5rem;
+  font-weight: 700;
   grid-column: 1 / -1;
   background-color: black;
   display: flex;
   color: white;
 }
 .operationButton {
-  background-color: rgb(169, 142, 190);
-  border: white;
-  transition: background-color 0.7s;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgba(116, 23, 124, 1) 0%,
+    rgba(121, 9, 73, 1) 52%,
+    rgba(168, 43, 140, 1) 100%
+  );
+  transition: background 0.7s;
 }
 .operationButton:hover {
-  background-color: white;
+  color: white;
+  background: linear-gradient(
+    270deg,
+    rgb(165, 76, 175) 0%,
+    rgb(73, 23, 51) 52%,
+    rgb(143, 51, 123) 90%
+  );
 }
 .funcButtons {
+  cursor: pointer;
   grid-column: span 2;
   background-color: black;
   color: white;
@@ -37,6 +51,7 @@
   color: black;
 }
 .funcButtonsEquals {
+  cursor: pointer;
   grid-column: span 4;
   background-color: black;
   color: white;

@@ -1,6 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import classes from './converterBox.module.css'
 import {degreeSigns} from '../../../utils/converterUtils'
+import {CSSProperties} from 'styled-components'
+const optionInlineStyle: CSSProperties = {
+  color: 'white',
+  backgroundColor: 'violet',
+  padding: '0.2rem',
+}
 type boxPropsType = {
   setSelected: React.Dispatch<React.SetStateAction<string>>
   selected: string
@@ -38,14 +44,11 @@ export const ConverterBox = (props: boxPropsType) => {
         value={props.selected}
         onChange={(e) => props.setSelected(e.target.value)}
       >
-        <option
-          className={classes.option}
-          style={{backgroundColor: 'white', color: 'black'}}
-          value="Celsius"
-        >
+        <div className={classes.option}></div>
+        <option className={classes.option} value="Celsius">
           Celsius
         </option>
-        <option className={classes.option} value="Fahrenheit">
+        <option id="option1" className={classes.option} value="Fahrenheit">
           Fahrenheit
         </option>
         <option className={classes.option} value="Kelvin">

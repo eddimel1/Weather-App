@@ -12,7 +12,9 @@ export const WelcomeScreen = (props: propType) => {
     <div className={classes.welcomeScreenWrapper}>
       <div className={classes.welcomeScreenContainer}>
         <div className={classes.textContainer}>
-          <div className={classes.welcomeText}>Welcome to game!</div>
+          <div className={classes.welcomeText}>
+            Welcome to the game! &#128521;
+          </div>
           <div className={classes.welcomeText1}>
             To start the game , please press start button
           </div>

@@ -1,13 +1,15 @@
 .tableContainer {
+  overflow-x: scroll;
+  font-size: clamp(11px, 1vw, 15px);
   height: 100%;
   display: grid;
   margin: 2rem;
   grid-template-columns: 1fr 1fr 2fr 2fr;
 }
 .gridItem {
-  font-size: clamp(16px, 3vw, 18px);
+  font-size: 1em;
   border: 2px solid white;
-  padding: 2rem;
+  padding: 2em;
 }
 .gridItem0 {
   background: linear-gradient(to right, rgb(255, 226, 226), white);

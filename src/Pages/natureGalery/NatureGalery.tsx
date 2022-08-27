@@ -10,6 +10,7 @@ export const NatureGalery = () => {
   const [town, setTown] = useState<string>('')
   const [selected, setSelected] = useState<string | undefined>(undefined)
   const [currentPage, setCurrentPage] = useState(1)
+  const [waiting, setWaiting] = useState<boolean>(false)
   const grid = useRef<HTMLDivElement>(null)
   const createPaginationNumbers = (count: number): number[] => {
     const arr: number[] = []
@@ -19,16 +20,18 @@ export const NatureGalery = () => {
     return arr
   }
 
-  console.log(data.results)
   useEffect(() => {
+    setWaiting(true)
     fetch(
       `https://api.unsplash.com/search/photos?query=${town},nature&page=${currentPage}&per_page=10&client_id=${ApiKey}`,
       {mode: 'cors', headers: {'Access-Control-Allow-Origin': '*'}}
     )
       .then((data) => data.json())
       .then((data) => setData(data))
+    setTimeout(() => {
+      setWaiting(false)
+    }, 300)
   }, [town, currentPage])
- 
 
   return (
     <>
@@ -45,40 +48,47 @@ export const NatureGalery = () => {
               fontWeight: '700',
             }}
           />
-          <div className={classes.imageGrid} ref={grid}>
+          <div
+            className={`${classes.imageGrid} ${
+              waiting ? `${classes.waiting}` : ''
+            }`}
+            ref={grid}
+          >
             {data.results &&
               data.results.map((result: any, i: number, array: any[]) => {
                 if (i === 0 || i === 3 || i === 6) {
-                  console.log(array[i].height)
                   return (
-                    <>
-                      <div className={classes.column}>
-                        <GaleryImageComp
-                          alt="natureImage"
-                          height={array[i].height}
-                          src={array[i].urls.regular}
-                          width={array[i].width}
-                          setSelected={setSelected}
-                          index={i.toString()}
-                        ></GaleryImageComp>
-                        <GaleryImageComp
-                          alt="natureImage"
-                          height={array[i + 1].height}
-                          src={array[i + 1].urls.regular}
-                          width={array[i + 1].width}
-                          setSelected={setSelected}
-                          index={(i + 1).toString()}
-                        ></GaleryImageComp>
-                        <GaleryImageComp
-                          alt="natureImage"
-                          height={array[i + 2].height}
-                          src={array[i + 2].urls.regular}
-                          width={array[i + 2].width}
-                          setSelected={setSelected}
-                          index={(i + 2).toString()}
-                        ></GaleryImageComp>
-                      </div>
-                    </>
+                    <div
+                      className={`${classes.column} ${
+                        waiting ? `${classes.waiting}` : ''
+                      }`}
+                      key={Date.now() + Math.random()}
+                    >
+                      <GaleryImageComp
+                        alt="natureImage"
+                        height={array[i].height}
+                        src={array[i].urls.regular}
+                        width={array[i].width}
+                        setSelected={setSelected}
+                        index={i.toString()}
+                      ></GaleryImageComp>
+                      <GaleryImageComp
+                        alt="natureImage"
+                        height={array[i + 1].height}
+                        src={array[i + 1].urls.regular}
+                        width={array[i + 1].width}
+                        setSelected={setSelected}
+                        index={(i + 1).toString()}
+                      ></GaleryImageComp>
+                      <GaleryImageComp
+                        alt="natureImage"
+                        height={array[i + 2].height}
+                        src={array[i + 2].urls.regular}
+                        width={array[i + 2].width}
+                        setSelected={setSelected}
+                        index={(i + 2).toString()}
+                      ></GaleryImageComp>
+                    </div>
                   )
                 } else {
                   return
@@ -92,13 +102,20 @@ export const NatureGalery = () => {
               />
             )}
           </div>
-          <div className={classes.paginationBar}>
-            {createPaginationNumbers(10).map((number,i) => {
+          <div
+            className={classes.paginationBar}
+            style={{display: `${waiting ? 'none' : 'flex'}`}}
+          >
+            {createPaginationNumbers(10).map((number, i) => {
               return (
-                <li key={Date.now() + i}
+                <li
+                  key={Date.now() + i}
                   className={classes.page}
                   onClick={() => {
-                    setCurrentPage(number)
+                    setTimeout(() => {
+                      setCurrentPage(number)
+                    }, 800)
+
                     setTimeout(() => {
                       grid.current?.scrollIntoView({
                         behavior: 'smooth',

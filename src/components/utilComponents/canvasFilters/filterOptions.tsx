@@ -2,18 +2,8 @@ import React, {FC, useEffect, useState} from 'react'
 import classes from './filterOptions.module.css'
 import {FilterInput} from './filterInput'
 import {option} from './filterInput'
-import image from '../../../assets/Heavy_rain.svg.png'
 import filters from '../../../svgFilters.module.css'
 
-/**
- * props:{setter , arrayofOptions}
- * each option has responsibility for every input
- * each option on click will check if an array includes this option , if it does delete hardcoded value from an array , othertwise add hardcoded value to an array
- * if an array includes this option render input with correspoding hardcoded value
- * input will have a reference to the canvas and will change filter with corresponding values
- *
- *
- */
 type propType = {
   canvasRef: React.RefObject<HTMLCanvasElement>
   url: string
@@ -91,6 +81,7 @@ export const FilterOptions: FC<propType> = (props: propType) => {
       fc(currentOption)
     }
   }
+
   const pushOptions = (option: string) => {
     setActiveOption(option)
     checkOption(option, activeOption, setActiveOption)
@@ -101,7 +92,6 @@ export const FilterOptions: FC<propType> = (props: propType) => {
     objOfInputValues: objOfInputValuesType
   ) => {
     let finalFilterString = ''
-    console.log(finalFilterString)
     if (options) {
       for (let i = 0; i < options.length; i++) {
         const lowercase = options[i].toLowerCase()
@@ -142,8 +132,6 @@ export const FilterOptions: FC<propType> = (props: propType) => {
     if (ctx && props.canvasRef.current) {
       const img = new Image(0, 0)
       img.src = props.url
-
-      console.log(filterStringBuilder(options, objOfInputValues))
       ctx.filter = filterStringBuilder(options, objOfInputValues) || ''
       ctx.drawImage(
         img,
@@ -313,8 +301,8 @@ export const FilterOptions: FC<propType> = (props: propType) => {
         <div
           className={classes.option}
           onClick={() => {
+            //not working
             if (canvas) {
-              console.log('downloading')
               const a = document.createElement('a')
               a.download = 'picture.png'
               a.href = canvas.toDataURL('image/jpeg', 1.0)

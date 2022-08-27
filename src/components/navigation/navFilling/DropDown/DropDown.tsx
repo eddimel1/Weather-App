@@ -14,7 +14,6 @@ type PropType = {
   setSelected: React.Dispatch<React.SetStateAction<string>>
 }
 export const SubDropDown = (props: PropType) => {
-  console.log(props.isSelected)
   const subDropDownHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement
     target.dataset.index && props.setSelected(target.dataset.index)

@@ -1,6 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classes from './imageComp.module.css'
-import {Transition1} from '../transitionComps/transitionOnlyOpacity'
 export const GaleryImageComp = (props: {
   src: string
   width: string
@@ -9,18 +8,20 @@ export const GaleryImageComp = (props: {
   index: string
   alt: string
 }) => {
+  const [loaded, setLoaded] = useState<boolean>(false)
   return (
-    <Transition1>
-      <div
-        className={classes.imgWrap}
-        onClick={(e) => props.setSelected(props.index)}
-      >
-        <img
-          className={classes.imageItem}
-          alt={props.alt}
-          src={props.src}
-        ></img>
-      </div>
-    </Transition1>
+    <div
+      className={`${classes.imgWrap} ${!loaded ? `${classes.loading}` : ''}`}
+      onClick={(e) => props.setSelected(props.index)}
+    >
+      <img
+        onLoad={() => {
+          setLoaded(true)
+        }}
+        className={classes.imageItem}
+        alt={props.alt}
+        src={props.src}
+      ></img>
+    </div>
   )
 }

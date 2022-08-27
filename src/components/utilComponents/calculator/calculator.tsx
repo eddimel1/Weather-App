@@ -40,9 +40,6 @@ type stateType = {
   operations?: operation[]
   currentValue?: string | undefined
   result?: number
-  // currentSign? : signType
-  // arrayOfInputs? : Array<string>
-  // initialValue? : string
 }
 export type action = {
   digit?: string
@@ -59,7 +56,7 @@ export type DigitButtonPropsType = {
 const calcPercentage = function (percent: number, total: number): number {
   return (percent / 100) * total
 }
-function equalsIsClicked(
+export function equalsIsClicked(
   arrayOfOperations: operation[],
   state: stateType
 ): number {
@@ -94,7 +91,10 @@ function equalsIsClicked(
               case null:
                 return acc * parseInt(array[1].valueNumber ?? '1', 10)
               case '*':
-                return acc * value
+                if (array[index - 1].sign === '*') {
+                  return acc * value
+                }
+                return acc - Number(array[index - 1].valueNumber) * value //??
               case '/':
                 if (array[index - 2].sign === '-') {
                   return (
@@ -114,11 +114,22 @@ function equalsIsClicked(
                       (parseInt(array[index - 1].valueNumber!) *
                         parseInt(array[index].valueNumber!))
                   )
+                } else {
+                  return acc * Number(array[index].valueNumber)
                 }
-                return 0
+
+              case '%': {
+                return (
+                  calcPercentage(
+                    Number(array[index - 2].valueNumber),
+                    Number(array[index - 1].valueNumber)
+                  ) * Number(array[index].valueNumber)
+                )
+              }
               default:
                 break
             }
+
             return 0
           case '/':
             if (state.operations && state.operations[0].valueNumber) {
@@ -137,16 +148,16 @@ function equalsIsClicked(
                   )
                 case '*':
                   if (array[array.length - 3].sign === null) {
-                    console.log(acc)
                     return acc / value
+                  } else {
+                    return (
+                      acc -
+                      parseInt(array[index - 2].valueNumber!) *
+                        parseInt(array[index - 1].valueNumber!) +
+                      value * value
+                    )
                   }
-                  console.log(acc)
-                  return (
-                    acc -
-                    parseInt(array[index - 2].valueNumber!) *
-                      parseInt(array[index - 1].valueNumber!) +
-                    value * value
-                  ) // ??
+
                 case '/': {
                   const arr2 = [] as any
                   let lastIndex: any
@@ -170,17 +181,26 @@ function equalsIsClicked(
                       parseInt(array[lastIndex - 1].valueNumber!, 10) /
                         parseInt(array[lastIndex].valueNumber!, 10)
                     )
+                  } else {
+                    return 0
                   }
-                  return 0
                 }
                 case null:
                   return (
                     parseInt(state.operations[0].valueNumber) /
                     parseInt(state.operations[1].valueNumber ?? '1', 10)
                   )
-
+                case '%': {
+                  console.log(acc)
+                  return (
+                    calcPercentage(
+                      Number(array[index - 2].valueNumber),
+                      Number(array[index - 1].valueNumber)
+                    ) / Number(array[index].valueNumber)
+                  )
+                }
                 default:
-                  break
+                  return 0
               }
             }
 
@@ -202,7 +222,7 @@ function equalsIsClicked(
               const length = state.operations.length
 
               switch (state.operations[length - 2].sign) {
-                case '+':{
+                case '+': {
                   const percentage =
                     calcPercentage(
                       parseInt(cur.valueNumber, 10),
@@ -219,8 +239,8 @@ function equalsIsClicked(
                     )
 
                   return acc + percentage
-                    }
-                case '-': { // ??
+                }
+                case '-': {
                   const percentage1 = calcPercentage(
                     parseInt(cur.valueNumber, 10),
                     parseInt(
@@ -268,8 +288,11 @@ function equalsIsClicked(
                       parseInt(state.operations[length - 2].valueNumber!)
                   )
 
-                case '%': //??
-                  return 0
+                case '%':
+                  return calcPercentage(
+                    Number(state.operations[length - 1].valueNumber!),
+                    acc
+                  )
 
                 default:
                   return 0
@@ -358,7 +381,7 @@ function reducer(state: stateType, action: action): stateType {
       }
 
     case 'operation-clicked': {
-        // eslint-disable-next-line no-case-declarations
+      // eslint-disable-next-line no-case-declarations
       const operation: operation = {valueNumber: null, sign: null}
 
       if (state.operations) {

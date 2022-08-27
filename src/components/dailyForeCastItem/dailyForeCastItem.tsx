@@ -9,21 +9,24 @@ type propType = {
   day: number
   night: number
   icon: string
+  setSelected: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const DailyForeCastItem = (props: propType) => {
   return (
     <>
-      <div className={classes.dailyBottomForeCastContainer}>
+      <div
+        className={classes.dailyBottomForeCastContainer}
+        onClick={() => props.setSelected(props.dt)}
+      >
         <div className={classes.Day}>
           {Days[new Date(props.dt * 1000).getDay()]}
         </div>
-        <div className={classes.WeatherIcon}>
-          <img
-            src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
-            alt="icon"
-          />
-        </div>
+        <img
+          src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
+          alt="icon"
+        />
+
         <div className={classes.weatherTime}>
           Night - {KelvinToCelcius(props.day)} &#8451;{' '}
         </div>

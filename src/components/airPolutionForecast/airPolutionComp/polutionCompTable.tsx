@@ -53,7 +53,7 @@ export const PolutionCompTable = (props: {
           return 'red'
         }
         return 'violet'
-      case 'co':{
+      case 'co': {
         const dividedQuantity = quantity / 1000
         if (dividedQuantity >= 0 && dividedQuantity <= 1) {
           return 'green'
@@ -66,7 +66,7 @@ export const PolutionCompTable = (props: {
         }
         return 'violet'
       }
-       
+
       case 'so2':
         if (quantity >= 0 && quantity <= 40) {
           return 'green'
@@ -79,7 +79,7 @@ export const PolutionCompTable = (props: {
         }
 
         return 'violet'
-      case 'nh3':{
+      case 'nh3': {
         const multipliedQuantity = quantity * 1000
         if (multipliedQuantity >= 0 && multipliedQuantity <= 200) {
           return 'green'
@@ -92,7 +92,6 @@ export const PolutionCompTable = (props: {
         }
         return 'violet'
       }
-      
 
       default:
         break

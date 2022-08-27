@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import Buttons from './components/navigation/navigation'
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import {MainContainer} from './Pages/currentWeather/mainContainer'
+import {MainContainer} from './Pages/currentWeather/currentWeater'
 import {Graphs} from './Pages/graphs/graphs'
 import {DailyForeCast} from './Pages/dailyWeather/dailyForeCast'
 import {Calculator} from './components/utilComponents/calculator/calculator'
@@ -20,22 +20,27 @@ import {GameConductor} from './Pages/quizz/gameConductor'
 
 function App() {
   const [mode, setMode] = useState<mode>('normal')
-  console.log(mode)
+
   const setModewithUseCallback = React.useCallback(setMode, [])
   const [randomColor, setRandomColor] = useState(
     'linear-gradient(90deg, rgba(6,38,241,1) 0%, rgba(26,9,121,1) 50%, rgba(0,212,255,1) 100%)'
   )
+  let interval: number | null = null
   useEffect(() => {
-    const interval = window.setInterval(
-      () => {
-        setRandomColor(
-          colorArray[Math.floor(Math.random() * colorArray.length)]
-        )
-      },
-      mode === 'disco' ? 200 : 15000
-    )
+    interval && window.clearInterval(interval)
+    if (mode !== 'normal') {
+      interval = window.setInterval(
+        () => {
+          setRandomColor(
+            colorArray[Math.floor(Math.random() * colorArray.length)]
+          )
+        },
+        mode === 'disco' ? 200 : 15000
+      )
+    }
+
     return () => {
-      clearInterval(interval)
+      interval && window.clearInterval(interval)
     }
   }, [mode])
 
@@ -43,8 +48,6 @@ function App() {
     <>
       <AppWrapper color={randomColor} mode={mode}>
         <AppContextWrapper>
-          {/* <div className={mode==='normal' ? 'App' : 'App1'} style={{"--color" : `${randomColor}`} as  React.CSSProperties}> */}
-
           <AnimatePresence exitBeforeEnter>
             <Router>
               <Buttons mode={mode} setMode={setModewithUseCallback} />
@@ -69,14 +72,7 @@ function App() {
                 >
                   {' '}
                 </Route>
-                <Route
-                  path="daily"
-                  element={
-                    <Transition>
-                      <DailyForeCast />
-                    </Transition>
-                  }
-                ></Route>
+                <Route path="daily" element={<DailyForeCast />}></Route>
                 <Route
                   path="calc"
                   element={

@@ -1,14 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import {toSunrise} from '../../../utils/utils'
 
 export const Clock = () => {
   const [clockState, setClockState] = useState<string | undefined>()
+  let intervalId: number | null
 
   useEffect(() => {
-    const inerval = setInterval(() => {
+    intervalId = window.setInterval(() => {
       const date = new Date()
       setClockState(date.toLocaleTimeString())
     }, 1000)
+    return () => {
+      if (intervalId) clearInterval(intervalId)
+    }
   }, [])
-  return <div style={{fontSize: '40px', color: 'black'}}>{clockState}</div>
+  return (
+    <div style={{fontSize: '4em', color: 'black'}}>
+      {clockState || '00 : 00 : 00'}
+    </div>
+  )
 }

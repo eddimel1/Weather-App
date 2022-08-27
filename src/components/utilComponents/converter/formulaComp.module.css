@@ -1,5 +1,10 @@
 .formulaWrapper {
-  background-color: rgb(169, 142, 190);
+  background: linear-gradient(
+    90deg,
+    rgba(116, 23, 124, 1) 0%,
+    rgba(121, 9, 73, 1) 52%,
+    rgba(168, 43, 140, 1) 100%
+  );
   color: black;
   font-size: 25px;
   border-radius: 15px;
@@ -7,4 +12,6 @@
   margin-top: 1rem;
   border: black 1px solid;
   width: clamp(50%, 15rem, 80%);
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0px 0px 2px rgb(0, 0, 0);
 }

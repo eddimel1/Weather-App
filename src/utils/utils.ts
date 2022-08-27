@@ -1,7 +1,7 @@
 import react from 'React'
 import {geoCodingObjectType} from '../staticData/geoCodingData'
 import {monthsArray, daysArray} from '../staticData/mainData'
-const apiKey = '8647cf510b1463995bb4faabd47b46f5'
+const apiKey = process.env.REACT_APP_WEATHER_APP_KEY
 
 export function toSunrise(unix: number | undefined): any {
   if (unix) {
@@ -22,7 +22,7 @@ export function hasProperty<T extends object>(
   prop: string,
   obj: T | undefined
 ): string | undefined {
-    // eslint-disable-next-line no-prototype-builtins
+  // eslint-disable-next-line no-prototype-builtins
   const truth = obj?.hasOwnProperty(prop)
   if (truth) {
     return prop
@@ -43,7 +43,7 @@ export async function api<T>(url: string): Promise<T> {
 }
 
 export const getLatAndLon = (town: string): void | Promise<Array<number>> => {
-    // eslint-disable-next-line no-async-promise-executor
+  // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (res, rej) => {
     try {
       const cords = await api<geoCodingObjectType>(
@@ -58,42 +58,48 @@ export const getLatAndLon = (town: string): void | Promise<Array<number>> => {
 }
 
 export function getDatefromData(
-  data: 'month' | 'day' | 'dayOfMonth' | 'hours' | 'minutes'
+  data: 'month' | 'day' | 'dayOfMonth' | 'hours' | 'minutes',
+  timestamp?: number
 ) {
   switch (data) {
-    case 'month':{
-        const month = new Date(Date.now()).getMonth()
-        return monthsArray[month]
+    case 'month': {
+      const month = timestamp
+        ? new Date(timestamp).getMonth()
+        : new Date(Date.now()).getMonth()
+      return monthsArray[month]
     }
-     
 
-    case 'day':{
-        const day = new Date(Date.now()).getDay()
-        return daysArray[day]
+    case 'day': {
+      const day = timestamp
+        ? new Date(timestamp).getDay()
+        : new Date(Date.now()).getDay()
+      return daysArray[day]
     }
-      
 
     case 'dayOfMonth':
+      if (timestamp) return new Date(timestamp).getDate()
       return new Date(Date.now()).getDate()
-    case 'hours':{
-        const hours = new Date(Date.now()).getHours()
-        if (hours < 10) {
-          return '0' + hours
-        } else {
-          return hours
-        }
+    case 'hours': {
+      const hours = timestamp
+        ? new Date(timestamp).getHours()
+        : new Date(Date.now()).getHours()
+      if (hours < 10) {
+        return '0' + hours
+      } else {
+        return hours
+      }
     }
-    
 
-    case 'minutes':{
-        const minutes = new Date(Date.now()).getMinutes()
-        if (minutes < 10) {
-          return minutes + '0'
-        } else {
-          return minutes
-        }
+    case 'minutes': {
+      const minutes = timestamp
+        ? new Date(timestamp).getMinutes()
+        : new Date(Date.now()).getMinutes()
+      if (minutes < 10) {
+        return minutes + '0'
+      } else {
+        return minutes
+      }
     }
-    
 
     default:
       break

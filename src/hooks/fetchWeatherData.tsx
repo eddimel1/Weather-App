@@ -13,7 +13,8 @@ type hookReturnType = {
   ) => void
   setAirPolutionWeatherDataByTown: (town2: string) => void
   setAirPolutionWeatherDataByCords: (lat: number, lon: number) => void
-  error: any
+  error: unknown
+  waiting: boolean
 }
 
 export const UsefetchWeatherData = (
@@ -24,11 +25,13 @@ export const UsefetchWeatherData = (
   const [airPolutionData, setAirPolutionData] = useState<airPolutionType>(
     {} as airPolutionType
   )
+  const [waiting, setWaiting] = useState<boolean>(false)
   const apiKey = process.env.REACT_APP_WEATHER_APP_KEY
   const [error, setError] = useState(null)
 
   const setWeatherDataByTown = useCallback(
     (town1: string, excludeArray1?: string[]): void => {
+      setWaiting(true)
       getLatAndLon(town1)?.then((cordsArray) => {
         api<partialData>(
           `https://api.openweathermap.org/data/2.5/onecall?lat=${
@@ -39,38 +42,53 @@ export const UsefetchWeatherData = (
         )
           .then((data) => {
             setWeather(data)
+            setWaiting(false)
           })
-          .catch((e) => setError(e))
+          .catch((e) => {
+            setError(e)
+          })
+        setWaiting(false)
       })
     },
     []
   )
   const setAirPolutionWeatherDataByTown = useCallback((town2: string) => {
+    setWaiting(true)
     getLatAndLon(town2)?.then((cordsArray) => {
       api<airPolutionType>(
         `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${cordsArray[0]}&lon=${cordsArray[1]}&appid=${apiKey}`
       )
         .then((data) => {
           setAirPolutionData(data)
+          setWaiting(false)
         })
-        .catch((e) => setError(e))
+        .catch((e) => {
+          setWaiting(false)
+          setError(e)
+        })
     })
   }, [])
   const setAirPolutionWeatherDataByCords = useCallback(
     (lat: number, lon: number) => {
+      setWaiting(true)
       api<airPolutionType>(
         `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
       )
         .then((data) => {
           setAirPolutionData(data)
+          setWaiting(false)
         })
-        .catch((e) => setError(e))
+        .catch((e) => {
+          setWaiting(false)
+          setError(e)
+        })
     },
     []
   )
 
   const setWeatherDataByCoords = useCallback(
     (lat?: number, lon?: number, excludeArray?: Array<string>): void => {
+      setWaiting(true)
       fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${addComaToArrayOfStrings(
           excludeArray
@@ -80,8 +98,12 @@ export const UsefetchWeatherData = (
           .json()
           .then((data) => {
             setWeather(data)
+            setWaiting(false)
           })
-          .catch((e) => setError(e))
+          .catch((e) => {
+            setWaiting(false)
+            setError(e)
+          })
       })
     },
     []
@@ -95,5 +117,6 @@ export const UsefetchWeatherData = (
     airPolutionData,
     setAirPolutionWeatherDataByCords,
     error,
+    waiting,
   }
 }

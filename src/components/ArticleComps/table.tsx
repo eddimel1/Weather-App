@@ -18,36 +18,32 @@ export const Table = (props: {obj: propType}) => {
         obj.rows.map((rowItems, index) => {
           for (let i = 0; i < rowItems.rowItems.length; i++) {
             return (
-              <>
+              <React.Fragment key={Date.now() + i + Math.random()}>
                 <div
-                  key={Date.now() + 1}
                   className={classes.gridItem}
                   style={{backgroundColor: `${rowItems.color}`}}
                 >
                   {rowItems.rowItems[i]}
                 </div>
                 <div
-                  key={Date.now() + 2}
                   className={classes.gridItem}
                   style={{backgroundColor: `${rowItems.color}`}}
                 >
                   {rowItems.rowItems[i + 1]}
                 </div>
                 <div
-                  key={Date.now() + 3}
                   className={classes.gridItem}
                   style={{backgroundColor: `${rowItems.color}`}}
                 >
                   {rowItems.rowItems[i + 2]}
                 </div>
                 <div
-                  key={Date.now() + 4}
                   className={classes.gridItem}
                   style={{backgroundColor: `${rowItems.color}`}}
                 >
                   {rowItems.rowItems[i + 3]}
                 </div>
-              </>
+              </React.Fragment>
             )
           }
         })}

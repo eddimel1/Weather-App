@@ -18,16 +18,6 @@ import {calcDuration, pad, calcPersentage} from './videoPlayerUtils'
 import {VideoPlayerSeekBar} from './videoPlayerSeekBar'
 import {VolumeBar} from './volumeBar'
 
-// const videoPlayerReducer = (state:any , action:any) : any {
-//     switch (action.type) {
-//         case '':
-
-//             break;
-
-//         default:
-//             break;
-//     }
-// }
 export const VideoPlayer = (props: {
   selected: string | undefined
   setSelectedVideo: React.Dispatch<React.SetStateAction<string | undefined>>
@@ -53,12 +43,6 @@ export const VideoPlayer = (props: {
     }
   }
 
-  // setInterval(()=>{
-  //     if(videoRef.current){
-  //         console.log(Math.round(videoRef.current.currentTime / videoRef.current.duration * 100 )+ '%')
-
-  //     }
-  // },1000)
   useEffect(() => {
     if (videoRef.current) {
       if (playerState === 'playing') {

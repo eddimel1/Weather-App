@@ -6,7 +6,13 @@ export const Input = (props: {
   styles?: React.CSSProperties
 }) => {
   const [change, setChange] = useState('')
+  const [error, setError] = useState<string | null>()
   const updateTown = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (/\d/.test(e.target.value)) {
+      setError('Only Letters')
+    } else {
+      setError(null)
+    }
     setChange(e.target.value)
   }
   const sendTown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -14,14 +20,18 @@ export const Input = (props: {
       props.setTown(change)
     }
   }
+
   return (
     <input
       className={classes.input}
       value={change}
-      placeholder="Check Town..."
+      placeholder="Check any town..."
       onKeyDown={sendTown}
       onChange={updateTown}
-      style={props.styles}
+      style={{
+        ...props.styles,
+        border: `${error ? '2px solid red' : '2px solid white'}`,
+      }}
     ></input>
   )
 }

@@ -8,7 +8,6 @@ import {hourlyType} from '../../staticData/mainData'
 import {ChartOptionItem} from '../../components/chartOptionItem/chartOptionItem'
 import {Transition} from '../../components/transitionComps/transition'
 
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -147,8 +146,6 @@ export const Graphs = () => {
     ])
   }, [town])
 
-  console.log(selectedChart)
-
   return (
     <Transition>
       <div
@@ -189,9 +186,10 @@ export const Graphs = () => {
 
             <div className={classes.optionsContainer}>
               <div className={classes.optionItemContainer}>
-                {optionsArray.map((option,i) => {
+                {optionsArray.map((option, i) => {
                   return (
-                    <OptionItem key={Date.now() + i}
+                    <OptionItem
+                      key={Date.now() + i}
                       index={option}
                       setSelected={setSelected}
                       selected={selected}
@@ -200,9 +198,10 @@ export const Graphs = () => {
                 })}
               </div>
               <div className={classes.chartOptionItem}>
-                {chartArray.map((chart,i) => {
+                {chartArray.map((chart, i) => {
                   return (
-                    <ChartOptionItem key={Date.now() + i}
+                    <ChartOptionItem
+                      key={Date.now() + i}
                       index={chart}
                       setChartSelected={setSelectedChart}
                       selected={selectedChart}

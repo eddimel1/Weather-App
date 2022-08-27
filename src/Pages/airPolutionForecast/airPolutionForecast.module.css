@@ -1,13 +1,16 @@
 .mainWrapper {
+  box-shadow: 0px 0px 10px white;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  text-shadow: 0px 0px 5px white;
 }
 .polutionForecast {
   display: flex;
   margin-bottom: 5rem;
 }
 .airPolutionWrapper {
+  box-shadow: 0px 0px 10px rgb(26, 25, 25);
   flex: 1;
 }
 .componentsWrapper {
@@ -48,6 +51,7 @@
   margin-left: 1.5rem;
 }
 .town {
+  text-transform: uppercase;
   font-size: clamp(16px, 4vw, 22px);
   font-weight: 700;
   background: -webkit-linear-gradient(rgba(233, 3, 72, 0.904), rgb(42, 4, 255));
@@ -55,6 +59,52 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Roboto;
+}
+.show {
+  animation: containerAnIM 1.5s ease-out;
+}
+.show2 {
+  animation: containerAnIM2 0.7s ease-out;
+}
+@keyframes containerAnIM {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1;
+    filter: blur(2px) brightness(1);
+  }
+  25% {
+    transform: translate3d(0px, 5px, 0px);
+    opacity: 0.5;
+    filter: blur(4px) brightness(2);
+    50% {
+      transform: translate3d(0px, 3px, 0px);
+      opacity: 0.7;
+      transform: translate3d(0px, 1px, 0px);
+      filter: blur(2px) brightness(3);
+    }
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+  }
+}
+@keyframes containerAnIM2 {
+  0% {
+    transform: translate3d(0px, 0px, -500px) scaleZ(0.8);
+    filter: saturate(1);
+  }
+  50% {
+    transform: translate3d(-5px, 0, 0) scaleZ(1);
+    filter: saturate(5);
+  }
+  75% {
+    transform: translate3d(-3px, 0, 0) scaleZ(1);
+    filter: saturate(3);
+  }
+  100% {
+    transform: translate3d(0px, 0, 0) scaleZ(1);
+    filter: saturate(1);
+  }
 }
 @media only screen and (max-width: 1100px) {
   .polutionForecast {

@@ -53,12 +53,13 @@ export const VideoPlayerSeekBar = (props: propsType) => {
       ref={seekBarRef}
       style={{zIndex: '500'}}
       onClick={(e: React.MouseEvent) => {
-        seekBarRef.current && setProgressWidth(
-          calcPersentage(
-            e.nativeEvent.offsetX,
-            seekBarRef.current.offsetWidth
+        seekBarRef.current &&
+          setProgressWidth(
+            calcPersentage(
+              e.nativeEvent.offsetX,
+              seekBarRef.current.offsetWidth
+            )
           )
-        )
         if (player && seekBarRef.current) {
           player.currentTime =
             (player.duration *

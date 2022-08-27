@@ -7,42 +7,118 @@
   background: rgba(0, 0, 0, 0.5);
 }
 .backdrop img {
+  position: relative;
   display: block;
   max-width: 100%;
-  max-height: 90%;
+  max-height: 800px;
   margin: 60px auto;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
 }
 
 .button {
-  width: 100%;
-  height: 3rem;
-  background: rgb(15, 231, 181);
+  cursor: pointer;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(calc(50% - 51px));
+  width: 100px;
+  height: 50px;
   background: linear-gradient(
     90deg,
-    rgba(15, 231, 181, 1) 0%,
-    rgba(84, 9, 121, 1) 52%,
-    rgba(0, 212, 255, 1) 100%
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 43, 1) 53%,
+    rgba(38, 39, 40, 1) 100%
   );
   color: white;
   font-family: Roboto;
   font-weight: 700;
   font-size: 18px;
+  transition: all 0.3s ease;
+  transition-property: font-size, color, background;
+}
+.button:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 50%,
+    rgba(9, 9, 43, 1) 73%,
+    rgba(38, 39, 40, 1) 100%
+  );
+  color: wheat;
+  font-size: 18.2px;
 }
 .optionsContainer {
+  background-color: white;
   display: flex;
   flex-direction: column;
 }
 .canvasWithOptionsWrapper {
+  margin-right: 25rem;
+  margin-bottom: 10rem;
+  left: 20%;
+  top: 5%;
+  position: relative;
   width: 70%;
-  margin: 0 auto;
 }
 .canvasWithOptionsContainer {
   margin-top: 3rem;
   display: flex;
 }
 .mainBox {
+  width: min-content;
+  position: relative;
   display: flex;
-  background-color: white;
+}
+.canvas {
+  max-height: 800px;
+}
+.imgAndButtonContainer {
+  margin-left: 0.5em;
+  position: relative;
+}
+
+@media (max-width: 1100px) {
+  .backdrop img {
+    max-width: 90%;
+  }
+
+  .canvasWithOptionsWrapper {
+    top: 10%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .canvasWithOptionsWrapper {
+    left: 10%;
+    top: 8%;
+  }
+  .canvasWithOptionsWrapper {
+    top: 15%;
+  }
+
+  .backdrop img {
+    top: 120px;
+  }
+  .button {
+    transform: translateX(calc(50% - 39px));
+    width: 80px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .button.button1 {
+    top: 80px;
+  }
+  .button.button2 {
+    top: -40px;
+  }
+}
+@media (max-width: 700px) {
+  .canvasWithOptionsWrapper {
+    left: 8%;
+    top: 20%;
+  }
 }

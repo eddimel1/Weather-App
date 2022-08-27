@@ -1,9 +1,22 @@
 .digitButton {
-  background-color: rgb(169, 142, 190);
+  background: linear-gradient(
+    90deg,
+    rgba(116, 23, 124, 1) 0%,
+    rgba(121, 9, 73, 1) 52%,
+    rgba(168, 43, 140, 1) 90%
+  );
+  box-shadow: 1px 1px 5px rgb(0, 0, 0);
   border: 1px solid white;
   font-size: clamp(16px, 3vw, 24px);
-  transition: background-color 0.7s;
+  transition: background 0.7s ease-in-out;
+  cursor: pointer;
 }
 .digitButton:hover {
-  background-color: white;
+  filter: saturate(3);
+  background: linear-gradient(
+    270deg,
+    rgb(126, 79, 131) 0%,
+    rgb(122, 37, 85) 52%,
+    rgb(158, 75, 140) 80%
+  );
 }

@@ -1,8 +1,9 @@
 .optionsContainer {
   display: inline-block;
-  width: 10rem;
+  min-width: 10rem;
   background-color: white;
   border: 2px solid black;
+  font-size: clamp(12px, 1vw, 17px);
 }
 .option {
   margin: 0.5rem;
@@ -16,6 +17,12 @@
     rgb(179, 18, 18),
     rgb(206, 4, 139)
   );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.option:hover {
+  background: -webkit-linear-gradient(270deg, rgb(0, 0, 0), rgb(153, 17, 108));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

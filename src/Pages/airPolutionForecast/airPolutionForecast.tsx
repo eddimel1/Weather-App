@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import classes from './airPolutionForecast.module.css'
-import {airPolutionListType} from '../../staticData/mainData'
 import {Input} from '../../components/UI/input/input'
 import {AirPolutionRow} from '../../components/airPolutionForecast/airPolutionComp/airPolutionRow'
 import {PolutionComp} from '../../components/airPolutionForecast/airPolutionComp/polutionComp'
@@ -10,11 +9,13 @@ import {failureCallback, successCallback} from '../../utils/geoLocationUtils'
 import {Transition} from '../../components/transitionComps/transition'
 
 export const AirPolutionForecast = () => {
-  const [data, setData] = useState([] as airPolutionListType[])
   const [town, sendTown] = useState('')
   const [selected, setSelected] = useState<string | undefined>(undefined)
+  const toggle = useRef<boolean>(false)
+  const [tg, stg] = useState<boolean>(false)
   const {
     airPolutionData,
+    waiting,
     setAirPolutionWeatherDataByTown,
     setAirPolutionWeatherDataByCords,
   } = UsefetchWeatherData()
@@ -35,12 +36,24 @@ export const AirPolutionForecast = () => {
     setAirPolutionWeatherDataByTown(town)
   }, [town])
 
+  useEffect(() => {
+    toggle.current = true
+    stg((prev) => !prev)
+    setTimeout(() => {
+      toggle.current = false
+    }, 500)
+  }, [selected])
+
   return (
     <>
       <Transition>
-        <div className={classes.mainWrapper}>
+        <div
+          className={`${classes.mainWrapper} ${
+            !waiting ? `${classes.show}` : ''
+          }`}
+        >
           <div className={classes.inputandTownWrapper}>
-            <h3 className={classes.town}>{town ? town.toUpperCase() : ''}</h3>
+            <h3 className={classes.town}>{town ? town : 'Tallinn'}</h3>
             <Input
               setTown={sendTown}
               styles={{maxWidth: '20rem', marginTop: '1rem'}}
@@ -58,11 +71,7 @@ export const AirPolutionForecast = () => {
                       return false
                     })
                     .map((item, i, array) => {
-                      console.log(array)
-
                       if (i === 0 || i % 2 === 0) {
-                        console.log(i)
-
                         return (
                           <AirPolutionRow
                             key={Date.now() + i}
@@ -83,9 +92,18 @@ export const AirPolutionForecast = () => {
               </div>
             </div>
 
-            <div className={classes.componentsWrapper}>
+            <div
+              className={`${classes.componentsWrapper} ${
+                toggle.current === true ? `${classes.show2}` : ''
+              }`}
+            >
               <div className={classes.componentsContainer}>
-                {airPolutionData?.list && selected ? (
+                {airPolutionData &&
+                airPolutionData.list &&
+                airPolutionData.list[0] &&
+                airPolutionData &&
+                airPolutionData.list[1] &&
+                selected ? (
                   <PolutionComp
                     compsNight={
                       airPolutionData.list[parseInt(selected + 1)].components
@@ -95,14 +113,28 @@ export const AirPolutionForecast = () => {
                     }
                     key={Date.now() + 1}
                   />
-                ) : airPolutionData && airPolutionData.list ? (
+                ) : airPolutionData &&
+                  airPolutionData.list &&
+                  airPolutionData.list[0] &&
+                  airPolutionData &&
+                  airPolutionData.list[1] ? (
                   <PolutionComp
                     compsNight={airPolutionData.list[0].components}
                     compsDay={airPolutionData.list[1].components}
                     key={Date.now() + 1}
                   />
                 ) : (
-                  'no data'
+                  <div
+                    style={{
+                      minWidth: '200px',
+                      minHeight: '100px',
+                      fontSize: '3.5em',
+                      padding: '0.5em',
+                    }}
+                  >
+                    Currently no data available &#128532; , please try again
+                    later{' '}
+                  </div>
                 )}
               </div>
             </div>

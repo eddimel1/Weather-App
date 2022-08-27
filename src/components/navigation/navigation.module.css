@@ -6,6 +6,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-shadow: 1px 1px 10px rgb(12, 12, 12);
+  font-weight: 900;
+  font-size: clamp(14px, 1vw, 20px);
 }
 
 .list {

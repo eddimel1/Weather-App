@@ -1,3 +1,10 @@
+.pageWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 1px 1px 5px whitesmoke;
+}
 .dailyWrapper {
   width: 100%;
 }
@@ -6,27 +13,36 @@
   flex-direction: column;
 }
 .dailyTop {
+  margin-top: 3em;
+  align-items: baseline;
+  justify-content: space-around;
   display: flex;
+  min-height: 170px;
+  animation: topContainerAnim 1.5s ease-in-out;
 }
 .dailyTopLeft {
+  display: flex;
   flex: 3 3 600px;
 }
 .dailyTopRight {
-  flex: 2 1 400px;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  margin-right: 5rem;
 }
 .dailyBottom {
+  box-shadow: 0px 0px 10px black;
+  font-size: clamp(7px, 1vw, 11px);
   display: flex;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   background-color: rgba(22, 24, 27, 0.2);
-  min-height: 400px;
+  max-height: 500px;
 }
 
 .dailyBottomContainer {
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
   display: flex;
   overflow-x: scroll;
   height: 100%;
@@ -41,7 +57,8 @@
   display: flex;
 }
 .timeAndDataContainer {
-  display: flex;
+  flex-direction: column;
+  display: inline-flex;
   align-items: center;
 }
 .timeAndDataContainer h3 {
@@ -49,14 +66,23 @@
   margin-top: 0;
 }
 .weatherData {
+  max-width: 60%;
+  box-shadow: 0px 0px 7px white;
   display: inline-flex;
   flex-direction: column;
   border: 1px white solid;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
+  background: linear-gradient(
+    90deg,
+    rgb(214, 214, 214) 0%,
+    rgb(208, 208, 224) 49%,
+    rgb(198, 215, 219) 100%
+  );
+
   border-radius: 15px;
-  margin-top: 50px;
-  max-width: 20%;
+}
+.weatherData > div:not(:last-child),
+.weatherData > div:not(:first-child) {
+  padding: 0.3rem 1rem;
 }
 .weatherDataItem {
   color: black;
@@ -77,6 +103,7 @@
   font-weight: 500;
 }
 .dailyTopRightLocation {
+  text-transform: uppercase;
   color: black;
   font-size: 50px;
   font-weight: 700;
@@ -94,17 +121,35 @@
   width: 100%;
   display: flex;
 }
-.dailyTopLeftContainer {
-  margin: 50px 0px 100px 100px;
-}
+
 .dailyBottomCurrentForeCastContainer {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
   margin: 50px;
+  cursor: pointer;
+}
+.dailyBottomCurrentForeCastContainer::before {
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  left: 0;
+  content: '';
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: width 0.5s ease-in-out;
+  width: 0%;
+  height: 100%;
+}
+.dailyBottomCurrentForeCastContainer:hover::before {
+  width: 100%;
+}
+.inputAndTownContainer {
+  display: flex;
+  flex-direction: column;
 }
 .currentDay {
-  font-size: clamp(16px, 3vw, 24px);
-  width: 60%;
+  font-size: 2.5em;
+  width: max-content;
   background-color: rgba(22, 24, 27, 0.2);
   border: black solid 1px;
   padding: 10px;
@@ -114,9 +159,14 @@
 }
 .weatherTimeCurrent {
   color: black;
-  font-size: 25px;
+
   font-weight: 500;
-  font-size: clamp(16px, 3vw, 24px);
+  font-size: 2em;
+}
+.dateAndTimeContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -124,9 +174,6 @@
     justify-content: start;
     align-items: none;
     overflow-x: scroll;
-  }
-  .weatherData {
-    max-width: 60%;
   }
 }
 @media only screen and (max-width: 1300px) {
@@ -136,7 +183,6 @@
     font-weight: 500;
   }
   .date {
-    margin-top: 30px;
     color: black;
     font-size: clamp(16px, 3vw, 26px);
     font-weight: 500;
@@ -170,4 +216,32 @@
   font-size: clamp(16px, 3vw, 24px);
   font-weight: 500;
   width: 50%;
+}
+.show {
+  animation: containerAnIM 1s ease-in;
+}
+.show2 {
+  animation: topContainerAnim 1s ease-in-out;
+}
+@keyframes containerAnIM {
+  0% {
+    transform: translate3d(10px, 10px, -500px) scaleZ(0.8) skew(10deg, 5deg);
+
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0px, 0px, 0px) scaleZ(1) skew(0deg, 0deg);
+    opacity: 1;
+  }
+}
+@keyframes topContainerAnim {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

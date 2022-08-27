@@ -11,13 +11,13 @@ export type compType = {
   pm10: number
   so2: number
 }
+
 export type compTypeWithDay = compType & {timeofTheDay: string}
 
 export const PolutionComp = (props: {
   compsNight: compType
   compsDay: compType
 }) => {
-  console.log(props)
   return (
     <div className={classes.compWrapper}>
       <div className={classes.mainContainer}>
