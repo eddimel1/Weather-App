@@ -55,7 +55,7 @@ export const DailyForeCast = () => {
     }
     window.setTimeout(() => {
       toggleAnim.current = false
-    }, 500)
+    }, 800)
   }, [selected])
 
   return (
