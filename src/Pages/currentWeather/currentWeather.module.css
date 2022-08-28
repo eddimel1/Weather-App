@@ -69,6 +69,7 @@
   color: rgb(106, 95, 131);
   font-weight: 700;
   font-size: 3em;
+  text-transform: uppercase;
 }
 .tempData {
   color: black;
@@ -95,26 +96,31 @@
 }
 @keyframes containerAnIM {
   0% {
+   
     transform: translate3d(1px, 1px, -500px) scaleZ(0.9);
     filter: blur(0px);
     opacity: 0.9;
   }
   25% {
+ 
     transform: translate3d(10px, 10px, -500px) scaleZ(0.8);
     filter: blur(2px);
     opacity: 0.8;
   }
   50% {
+    mix-blend-mode: luminosity;
     transform: translate3d(1px, 1px, -500px) scaleZ(0.8);
     filter: blur(3px);
     opacity: 0.9;
   }
   75% {
+    mix-blend-mode: luminosity;
     transform: translate3d(-8px, -8px, 0) scaleZ(1);
     filter: blur(1px);
     opacity: 1;
   }
   100% {
+    mix-blend-mode: luminosity;
     transform: translate3d(0px, 0px, 0) scaleZ(1);
     filter: blur(0px);
     opacity: 1;

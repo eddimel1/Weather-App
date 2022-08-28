@@ -130,6 +130,7 @@
   cursor: pointer;
 }
 .dailyBottomCurrentForeCastContainer::before {
+
   position: absolute;
   top: 0;
   border-radius: 10px;
@@ -139,9 +140,13 @@
   transition: width 0.5s ease-in-out;
   width: 0%;
   height: 100%;
+  mix-blend-mode:difference;
+ filter:blur(45px);
+  
 }
 .dailyBottomCurrentForeCastContainer:hover::before {
   width: 100%;
+
 }
 .inputAndTownContainer {
   display: flex;

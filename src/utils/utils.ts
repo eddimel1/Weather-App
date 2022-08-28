@@ -95,9 +95,9 @@ export function getDatefromData(
         ? new Date(timestamp).getMinutes()
         : new Date(Date.now()).getMinutes()
       if (minutes < 10) {
-        return minutes + '0'
+        return '0' + minutes 
       } else {
-        return minutes
+        return minutes.toString()
       }
     }
 

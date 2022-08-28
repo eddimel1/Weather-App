@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react'
+import React, {useEffect, useState, useContext, useRef} from 'react'
 import classes from './currentWeather.module.css'
 import {toSunrise, KelvinToCelcius, hasProperty} from '../../utils/utils'
 import {Clock} from '../../components/utilComponents/Clock/clock'
@@ -16,7 +16,8 @@ export const MainContainer = () => {
   const [town, setTown] = useState<string>('')
   const {waiting, weatherData, setWeatherDataByTown, setWeatherDataByCoords} =
     UsefetchWeatherData()
-
+    const initialLoad = useRef<boolean>(true)
+console.log(initialLoad.current)
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -26,11 +27,18 @@ export const MainContainer = () => {
         failureCallback(err, setWeatherDataByTown, defaultExcludeArray)
       }
     )
+   
   }, [])
 
   useEffect(() => {
     setWeatherDataByTown(town, defaultExcludeArray)
+    
   }, [town])
+  useEffect(()=>{
+    window.setTimeout(()=>{
+        initialLoad.current = false
+    },500)
+  },[])
 
   return (
     <>
@@ -38,7 +46,7 @@ export const MainContainer = () => {
         <div className={classes.containerForScroll}>
           <div
             className={`${classes.mainWrapper} ${filters.naturalShadow} ${
-              !waiting ? `${classes.show}` : ''
+              !waiting && !initialLoad.current ? `${classes.show}` : ''
             }`}
           >
             <div className={classes.mainContainer}>
@@ -199,8 +207,8 @@ export const MainContainer = () => {
             </div>
           </div>
         </div>
-      </Transition>
-
+      
+        </Transition>             
       <Footer />
     </>
   )
